@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
@@ -9,7 +9,6 @@ import { profile } from "../data/profile";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
-  { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s+/g, "")}` },
   { icon: MapPin, label: "Location", value: profile.location },
 ];
 
@@ -59,12 +58,12 @@ export default function Contact() {
                 {href ? (
                   <a
                     href={href}
-                    className="text-sm font-medium text-navy-dark hover:text-navy"
+                    className="wrap-break-word text-sm font-medium text-navy-dark hover:text-navy"
                   >
                     {value}
                   </a>
                 ) : (
-                  <p className="text-sm font-medium text-navy-dark">{value}</p>
+                  <p className="wrap-break-word text-sm font-medium text-navy-dark">{value}</p>
                 )}
               </div>
             </Card>

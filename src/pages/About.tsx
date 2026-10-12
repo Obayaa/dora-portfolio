@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, CheckCircle2, Download, Users } from "lucide-react";
+import { MapPin, Mail, CheckCircle2, Download, Users } from "lucide-react";
 import SectionHeading from "../components/ui/SectionHeading";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
@@ -10,7 +10,6 @@ import meOfficial from "../assets/me_official.jpeg";
 const quickFacts = [
   { icon: MapPin, label: "Location", value: profile.location },
   { icon: Mail, label: "Email", value: profile.email },
-  { icon: Phone, label: "Phone", value: profile.phone },
   { icon: CheckCircle2, label: "Availability", value: profile.availability },
 ];
 
@@ -59,13 +58,15 @@ export default function About() {
 
       <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-5">
         <Reveal className="md:col-span-2">
-          <div className="relative mx-auto h-72 w-72 md:h-full md:w-full">
-            <div className="absolute inset-0 rounded-3xl bg-cream" />
-            <img
-              src={meOfficial}
-              alt={profile.name}
-              className="absolute inset-0 h-full w-full rounded-3xl object-cover object-top shadow-xl ring-4 ring-white"
-            />
+          <div className="relative mx-auto h-72 w-72 rounded-3xl bg-cream p-3 shadow-xl ring-4 ring-white md:h-full md:w-full">
+            <div className="relative h-full w-full overflow-hidden rounded-2xl">
+              <img
+                src={meOfficial}
+                alt={profile.name}
+                className="h-full w-full object-cover object-top"
+              />
+              <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_50px_12px_rgba(40,57,108,0.18)]" />
+            </div>
           </div>
         </Reveal>
 
@@ -76,14 +77,14 @@ export default function About() {
             </p>
           ))}
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {quickFacts.map(({ icon: Icon, label, value }) => (
               <Card key={label} className="flex flex-col gap-2">
                 <Icon size={20} className="text-navy" />
                 <p className="text-xs font-semibold uppercase tracking-wide text-navy-dark/50">
                   {label}
                 </p>
-                <p className="text-sm font-medium text-navy-dark">{value}</p>
+                <p className="wrap-break-word text-sm font-medium text-navy-dark">{value}</p>
               </Card>
             ))}
           </div>

@@ -1,7 +1,7 @@
 export const profile = {
   name: "Dora Appiah",
   initials: "DA",
-  role: "Software Engineer & AI/ML Practitioner",
+  role: "Software Engineer",
   tagline:
     "Building secure, scalable digital solutions across web, mobile, and AI — from banking platforms to accessibility tech across Africa.",
   bio: [
@@ -11,7 +11,7 @@ export const profile = {
   ],
   location: "Accra, Ghana",
   email: "doraappiah2004@gmail.com",
-  phone: "+233 544 555 745",
+  currentCompany: "First Bank Ghana",
   availability: "Open to select opportunities & collaborations",
   resumeUrl: "#",
   social: {

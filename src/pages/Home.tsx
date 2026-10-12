@@ -80,7 +80,7 @@ export default function Home() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 pt-4"
+              className="flex flex-wrap items-center gap-3 pt-1"
             >
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
@@ -88,10 +88,9 @@ export default function Home() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={label}
-                  className="rounded-full border border-navy/15 p-2.5 text-navy transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-navy/15 px-4 py-2 text-sm font-medium text-navy-dark transition-all duration-200 hover:-translate-y-0.5 hover:border-navy hover:bg-navy hover:text-white"
                 >
-                  <Icon size={18} />
+                  <Icon size={16} /> {label}
                 </a>
               ))}
             </motion.div>
@@ -103,13 +102,18 @@ export default function Home() {
             className="relative flex flex-1 items-center justify-center"
           >
             <div className="relative h-72 w-72 sm:h-96 sm:w-96 lg:h-112 lg:w-md">
-              <div className="absolute inset-0 rounded-[2.5rem] bg-cream" />
-              <img
-                src={meOfficial}
-                alt={profile.name}
-                className="absolute inset-0 h-full w-full rounded-[2.5rem] object-cover object-top shadow-2xl ring-4 ring-white"
-              />
-              <div className="absolute inset-3 -z-10 rounded-[2.5rem] border-2 border-dashed border-navy/20" />
+              <div className="absolute -inset-3 rounded-[2.75rem] border-2 border-dashed border-navy/20" />
+
+              <div className="relative h-full w-full rounded-[2.5rem] bg-cream p-3 shadow-2xl ring-4 ring-white sm:p-4">
+                <div className="relative h-full w-full overflow-hidden rounded-[2rem]">
+                  <img
+                    src={meOfficial}
+                    alt={profile.name}
+                    className="h-full w-full object-cover object-top"
+                  />
+                  <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_50px_12px_rgba(40,57,108,0.18)]" />
+                </div>
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
@@ -118,10 +122,10 @@ export default function Home() {
                 className="absolute -bottom-5 -left-6 rounded-xl bg-white px-4 py-2.5 shadow-lg"
               >
                 <p className="text-xs font-semibold uppercase tracking-wide text-navy-light">
-                  Currently
+                  Currently at
                 </p>
                 <p className="text-sm font-semibold text-navy-dark">
-                  Frontend Developer
+                  {profile.currentCompany}
                 </p>
               </motion.div>
             </div>

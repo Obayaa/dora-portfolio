@@ -1,32 +1,50 @@
-# React + TypeScript + Vite
+# Dora Appiah — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio site for Dora Appiah, a Software Engineer and AI/ML practitioner based in Accra, Ghana. Built to showcase work experience, technical and soft skills, and featured projects.
 
-Currently, two official plugins are available:
+**Live site:** _add your deployed Vercel URL here once deployed_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Pages
 
-## React Compiler
+- **Home** — hero introduction, highlight stats, and a skills teaser
+- **About** — bio, quick facts, work experience & education timeline, and leadership/community involvement
+- **Skills** — technical skill categories plus a "Beyond the Code" soft skills section
+- **Projects** — featured web, mobile, and UI/UX design projects with live/repo/Figma links
+- **Contact** — contact details and a mailto-based contact form
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vite.dev/) for tooling and dev server
+- [Tailwind CSS v4](https://tailwindcss.com/) for styling (navy `#28396C` / cream `#EAE6BC` palette, defined in `src/index.css`)
+- [React Router DOM](https://reactrouter.com/) for client-side routing
+- [Motion](https://motion.dev/) for animations (scroll reveals, page transitions, hero entrance)
+- [Lucide](https://lucide.dev/) + [React Icons](https://react-icons.github.io/react-icons/) for iconography
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Project Structure
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+src/
+  assets/       # profile photo and project screenshots
+  components/
+    layout/     # Navbar, Footer, Layout, ScrollToTop
+    ui/         # Button, Card, SectionHeading, Reveal
+  data/         # editable content: profile, skills, experience, projects
+  pages/        # Home, About, Skills, Projects, Contact, NotFound
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Site content (bio, skills, experience, and projects) lives entirely in `src/data/` — update those files to change what's displayed without touching component code.
+
+## Development
+
+```bash
+npm install
+npm run dev       # start the dev server
+npm run build     # type-check and build for production
+npm run lint      # run oxlint
+npm run preview   # preview the production build locally
+```
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com/) — framework preset "Vite", build command `npm run build`, output directory `dist`.
